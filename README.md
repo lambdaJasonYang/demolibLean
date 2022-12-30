@@ -1,4 +1,4 @@
-# HOW it's made
+# How its made
 
 ```bash
 mkdir demolib
@@ -8,3 +8,46 @@ mkdir Demolib
 touch Demolib/X.lean
 ```
 
+# How to use
+
+In make another directory for lean executbale
+
+```bash
+cd ~
+mkdir consumer
+cd consumer
+lake init consumer exe
+```
+
+Main.lean
+
+```
+import Demolib
+
+def main : IO Unit :=
+  IO.println s!"Hello, {hello}!"
+```
+
+Add the line `require demolib from git "https://github.com/userJY/demolibLean.git"`
+
+lakefile.lean
+
+```
+import Lake
+open Lake DSL
+
+require demolib from git "https://github.com/userJY/demolibLean.git"
+
+package «democonsumer» {
+  -- add package configuration options here
+}
+
+lean_lib «Democonsumer» {
+  -- add library configuration options here
+}
+
+@[default_target]
+lean_exe «democonsumer» {
+  root := `Main
+}
+```
