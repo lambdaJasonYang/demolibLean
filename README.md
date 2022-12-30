@@ -1,3 +1,5 @@
+The other repo with both the consumer and the demolib is [https://github.com/userJY/demolibLeanLocal](https://github.com/userJY/demolibLeanLocal)
+
 # How its made
 
 ```bash
@@ -25,7 +27,9 @@ Main.lean
 import Demolib
 
 def main : IO Unit :=
-  IO.println s!"Hello, {hello}!"
+  IO.println s!"Hello, {demo}"
+
+#eval demo
 ```
 
 Add the line `require demolib from git "https://github.com/userJY/demolibLean.git"`
