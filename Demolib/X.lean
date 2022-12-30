@@ -1,1 +1,2 @@
-def hello := "world"
+def demo := "demolib"
+def bye := "bye"
